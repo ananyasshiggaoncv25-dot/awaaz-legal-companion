@@ -3,31 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc; /* Softer slate background */
+  --background: #f8fafc;
   --foreground: #0f172a;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Prevents letters from squishing together */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  line-height: 1.6; /* Global breathing room */
 }
 
-/* Fix for the Legal Document Paper */
-.legal-paper {
+/* The Legal A4 Paper Aesthetic */
+.document-page {
   background: white;
-  /* Simulates a real A4 page ratio */
-  min-height: 297mm; 
-  padding: 4rem !important;
-  line-height: 2; /* Double spacing for legal clarity */
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  min-height: 297mm;
+  padding: 4rem 5rem;
+  box-shadow: 0 0 50px rgba(0,0,0,0.05);
+  position: relative;
+  border-top: 12px solid #2563eb;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-/* Custom scrollbar to prevent layout shifting */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.document-page::after {
+  content: "AWAAZ LEGAL DRAFT";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 5rem;
+  color: rgba(0,0,0,0.02);
+  pointer-events: none;
+}
+
+/* Procedural Flowchart Line */
+.flow-line::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 48px;
+  width: 2px;
+  height: calc(100% - 24px);
+  background: #e2e8f0;
+}

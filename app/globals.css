@@ -3,30 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #fdfdfd;
   --foreground: #0f172a;
 }
 
 body {
-  background-color: #f8fafc;
-  /* Vibrant but professional background */
+  background-color: #ffffff;
+  /* Multi-color mesh gradient */
   background-image: 
-    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(20, 184, 166, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Legal Paper styling */
 .legal-paper {
   background: white;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  line-height: 1.8;
-  border-left: 4px solid #3b82f6; /* Blue spine */
+  background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 100% 2.5rem;
+  line-height: 2.5rem;
+  padding: 5rem 3rem;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
+  border-left: 8px solid #f97316;
 }
 
-/* Fix text smudging */
-p, h1, h2, h3, span {
-  letter-spacing: 0.01em;
-  line-height: 1.6;
+/* Flowchart Step connector */
+.flow-line::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 24px;
+  background: #cbd5e1;
 }

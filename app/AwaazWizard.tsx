@@ -3,7 +3,43 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Gavel, User, Briefcase, HeartPulse, ChevronRight, ChevronLeft, Download, RotateCcw, Search, Globe, CheckCircle } from "lucide-react";
-import { LANGUAGES, LEGAL_CASES } from "./legalData";
+// Fallback/local data for languages and legal cases.
+// This avoids a hard dependency on an external legalData module.
+const LANGUAGES = [
+  { code: "en", name: "English" },
+  { code: "hi", name: "हिन्दी" }
+];
+
+const LEGAL_CASES: Record<string, Array<any>> = {
+  Youth: [
+    {
+      id: "y1",
+      title: { en: "Exam Malpractice - Fee Refund", hi: "परीक्षा अनुचितता - शुल्क वापस" },
+      flowchart: [
+        "Collect evidence",
+        "Send representation to institution",
+        "File complaint with exam authority"
+      ],
+      rights: ["Right to fair evaluation", "Right to information"]
+    }
+  ],
+  Adult: [
+    {
+      id: "a1",
+      title: { en: "Salary Dues", hi: "वेतन बकाया" },
+      flowchart: ["Demand notice", "Conciliation", "File labour complaint"],
+      rights: ["Right to timely wages", "Right to redressal"]
+    }
+  ],
+  Senior: [
+    {
+      id: "s1",
+      title: { en: "Pension Delay", hi: "पेंशन में देरी" },
+      flowchart: ["Submit grievance", "Escalate to nodal officer", "Approach tribunal"],
+      rights: ["Right to social security", "Right to timely payments"]
+    }
+  ]
+};
 
 export default function AwaazWizard() {
   const [lang, setLang] = useState("en");

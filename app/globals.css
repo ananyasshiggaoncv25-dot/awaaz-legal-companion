@@ -3,27 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --background: #fdfdfe; /* Crisp, slightly cool white */
-  --foreground: #0f172a; /* Deep Navy Slate */
-  --primary: #1e1b4b;   /* Midnight Indigo */
+  --background: #ffffff;
+  --foreground: #0f172a;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  /* This line below prevents font smudging */
+  background-color: #f8fafc;
+  /* Vibrant but professional background */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* Custom class for the legal paper effect */
 .legal-paper {
   background: white;
-  box-shadow: 
-    0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075),
-    0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075);
-  line-height: 1.8; /* Extra breathing room for text */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+  border-left: 4px solid #3b82f6; /* Blue spine */
+}
+
+/* Fix text smudging */
+p, h1, h2, h3, span {
+  letter-spacing: 0.01em;
+  line-height: 1.6;
 }

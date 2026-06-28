@@ -3,29 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --background: #fdfdfd;
+  --background: #f8fafc; /* Softer slate background */
   --foreground: #0f172a;
 }
 
 body {
-  background: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.08) 0px, transparent 50%),
-              radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
-              #ffffff;
-  min-height: 100vh;
-  /* Crucial for complex scripts like Hindi/Tamil */
-  text-rendering: optimizeLegibility;
+  background-color: var(--background);
+  color: var(--foreground);
+  /* Prevents letters from squishing together */
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6; /* Global breathing room */
 }
 
+/* Fix for the Legal Document Paper */
 .legal-paper {
   background: white;
-  background-image: repeating-linear-gradient(white 0px, white 2.4rem, #f1f5f9 2.5rem);
-  line-height: 2.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-  border-left: 12px solid #2563eb;
+  /* Simulates a real A4 page ratio */
+  min-height: 297mm; 
+  padding: 4rem !important;
+  line-height: 2; /* Double spacing for legal clarity */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
 }
 
-/* Scrollbar for 100+ cases list */
-.custom-scrollbar::-webkit-scrollbar { width: 6px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+/* Custom scrollbar to prevent layout shifting */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }

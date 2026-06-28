@@ -3,25 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #fbfcfd;
-  --foreground: #0f172a;
+  --background: #fdfdfe; /* Crisp, slightly cool white */
+  --foreground: #0f172a; /* Deep Navy Slate */
+  --primary: #1e1b4b;   /* Midnight Indigo */
 }
 
 body {
   background-color: var(--background);
-  /* Subtle mesh gradient for a high-end feel */
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
   color: var(--foreground);
-  min-height: 100vh;
+  /* This line below prevents font smudging */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-.glass-card {
-  @apply bg-white/80 backdrop-blur-md border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)];
-}
-
-.document-paper {
-  @apply bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-slate-100;
-  font-family: var(--font-garamond);
+/* Custom class for the legal paper effect */
+.legal-paper {
+  background: white;
+  box-shadow: 
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075);
+  line-height: 1.8; /* Extra breathing room for text */
 }
